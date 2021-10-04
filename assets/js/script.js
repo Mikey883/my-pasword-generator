@@ -40,6 +40,22 @@ var generateBtn = document.querySelector("#generate");
         
     };
 
+    function generateRandomSpecialCharAndUppercase() {
+    
+        var specialChar=["!", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@", "[", "]", "^", "_", "`", "{", "|", "}", "~", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+        var randomPosition=getRandomPositionInArray(specialChar.length);
+        return specialChar[randomPosition];
+        
+    };
+
+    function generateRandomAll() {
+    
+        var specialChar=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, "!", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@", "[", "]", "^", "_", "`", "{", "|", "}", "~", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+        var randomPosition=getRandomPositionInArray(specialChar.length);
+        return specialChar[randomPosition];
+        
+    };
+
 function generatePassword() {
     var passwordLengthConf = prompt("Choose a password length: 8-128 characters.");
     
@@ -86,7 +102,19 @@ function generatePassword() {
     for(var i = password.length; i < passwordLength; i++){
         var typeOfCharacterToGenerate=true
 
-        if(typeOfCharacterToGenerate===wantUppercase){
+        if(typeOfCharacterToGenerate===wantSpecialChar && typeOfCharacterToGenerate===wantNumbers && typeOfCharacterToGenerate===wantUppercase && typeOfCharacterToGenerate===wantLowercase){
+            password+=generateRandomSpecialCharAndUppercase();
+        }
+        else if(typeOfCharacterToGenerate===wantSpecialChar && typeOfCharacterToGenerate===wantUppercase){
+            password+=generateRandomSpecialCharAndUppercase();
+        }
+        else if(typeOfCharacterToGenerate===wantSpecialChar && typeOfCharacterToGenerate===wantLowercase){
+            password+=generateRandomSpecialCharAndUppercase();
+        }
+        else if(typeOfCharacterToGenerate===wantSpecialChar && typeOfCharacterToGenerate===wantNumbers){
+            password+=generateRandomSpecialCharAndUppercase();
+        }
+        else if(typeOfCharacterToGenerate===wantUppercase){
             password+=generateRandomUppercaseLetter();
         }
         else if(typeOfCharacterToGenerate===wantLowercase){
