@@ -90,6 +90,29 @@ var generateBtn = document.querySelector("#generate");
         
     };
 
+    function generateRandomUpperLowerSpecial() {
+    
+        var specialChar=["!", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@", "[", "]", "^", "_", "`", "{", "|", "}", "~", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+        var randomPosition=getRandomPositionInArray(specialChar.length);
+        return specialChar[randomPosition];
+        
+    };
+
+    function generateRandomUpperLowerNumber() {
+    
+        var specialChar=["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+        var randomPosition=getRandomPositionInArray(specialChar.length);
+        return specialChar[randomPosition];
+        
+    };
+
+    function generateRandomUpperLower() {
+    
+        var specialChar=["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+        var randomPosition=getRandomPositionInArray(specialChar.length);
+        return specialChar[randomPosition];
+        
+    };
 // Main password generation function   
 function generatePassword() {
     var passwordLengthConf = prompt("Choose a password length: 8-128 characters.");
@@ -150,6 +173,15 @@ function generatePassword() {
         }
         else if(typeOfCharacterToGenerate===wantSpecialChar && typeOfCharacterToGenerate===wantNumbers && typeOfCharacterToGenerate===wantLowercase){
             password+=generateRandomSpecialNumberLower();
+        }
+        else if(typeOfCharacterToGenerate===wantLowercase && typeOfCharacterToGenerate===wantUppercase && typeOfCharacterToGenerate===wantSpecialChar){
+            password+=generateRandomUpperLowerSpecial();
+        }
+        else if(typeOfCharacterToGenerate===wantLowercase && typeOfCharacterToGenerate===wantUppercase && typeOfCharacterToGenerate===wantNumbers){
+            password+=generateRandomUpperLowerNumber();
+        }
+        else if(typeOfCharacterToGenerate===wantLowercase && typeOfCharacterToGenerate===wantUppercase){
+            password+=generateRandomUpperLower();
         }
         else if(typeOfCharacterToGenerate===wantSpecialChar && typeOfCharacterToGenerate===wantUppercase){
             password+=generateRandomSpecialCharAndUppercase();
